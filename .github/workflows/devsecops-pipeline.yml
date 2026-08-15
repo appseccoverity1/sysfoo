@@ -27,6 +27,11 @@ jobs:
    - ci-job
    runs-on: ubuntu-latest
    steps:
+      - name: Code Checkout or Code Clone
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  
+          
       - name: Docker Builds
         run: docker build -t ${{ secrets.DOCKER_USERNAME }}/sysfoo:v1 .
 
@@ -44,8 +49,3 @@ jobs:
 
       - name: Docker Push
         run: docker push ${{ secrets.DOCKER_USERNAME }}/sysfoo:v1
-
-      - name: Code Checkout or Code Clone
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0  
