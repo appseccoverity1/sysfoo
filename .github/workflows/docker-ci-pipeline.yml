@@ -2,7 +2,7 @@ name: docker-ci-pipeline
 on:
   push:
     branches:
-      - devsecops-jan-2025
+      - main
 
 jobs:
   build-sysfoo:
