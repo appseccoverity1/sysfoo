@@ -2,7 +2,7 @@ name: devsecops-ci-pipeline
 on:
   push:
     branches:
-      - main
+      - devsec
 
 jobs:
   ci-job:
@@ -20,8 +20,13 @@ jobs:
       - name: Code Checkout or Code Clone
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0       
-
+          fetch-depth: 0   
+          
+      - name: SonarQube Scan
+        uses: sonarsource/sonarcloud-github-action@<action version> # Ex: v4.0.0, See the latest version at https://github.com/marketplace/actions/sonarcloud-scan
+        env:
+         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+  
   build-sysfoo:
    needs:
    - ci-job
