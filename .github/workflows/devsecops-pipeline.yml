@@ -29,7 +29,6 @@ jobs:
         with:
           args: >
            -Dsonar.organization=appseccoverity1 # For SonarQube Cloud only
-           "-Dsonar.projectName=My Project"
            -Dsonar.projectKey=appseccoverity1_sysfoo
            -Dsonar.sources=.
            -Dsonar.verbose=true
