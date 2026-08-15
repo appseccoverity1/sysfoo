@@ -44,3 +44,8 @@ jobs:
 
       - name: Docker Push
         run: docker push ${{ secrets.DOCKER_USERNAME }}/sysfoo:v1
+
+      - name: Code Checkout or Code Clone
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  
