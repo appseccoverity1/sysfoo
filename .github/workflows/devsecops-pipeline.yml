@@ -25,7 +25,10 @@ jobs:
   build-sysfoo:
    needs:
    - ci-job
+   permissions:
+    security-events: write
    runs-on: ubuntu-latest
+   
    steps:
       - name: Code Checkout or Code Clone
         uses: actions/checkout@v4
