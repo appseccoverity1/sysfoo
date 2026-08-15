@@ -28,12 +28,11 @@ jobs:
          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
           args: >
-            -Dsonar.organization=appseccoverity1 # For SonarQube Cloud only
+            -Dsonar.organization=appseccoverity1
             -Dsonar.projectKey=appseccoverity1_sysfoo
             -Dsonar.sources=.
             -Dsonar.verbose=true
             -Dsonar.language=java
-     
   
   build-sysfoo:
    needs:
