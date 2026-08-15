@@ -26,7 +26,14 @@ jobs:
         uses: sonarsource/sonarcloud-github-action@v5.0.0 # Ex: v4.0.0, See the latest version at https://github.com/marketplace/actions/sonarcloud-scan
         env:
          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-
+        with:
+          args: >
+           -Dsonar.organization=appseccoverity1 # For SonarQube Cloud only
+           "-Dsonar.projectName=My Project"
+           -Dsonar.projectKey=appseccoverity1_sysfoo
+           -Dsonar.sources=.
+           -Dsonar.verbose=true
+           -Dsonar.language=java
      
   
   build-sysfoo:
