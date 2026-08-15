@@ -23,7 +23,6 @@ jobs:
           fetch-depth: 0       
 
 
-
       - name: Docker Builds
         run: docker build -t ${{ secrets.DOCKER_USERNAME }}/sysfoo:v1 .
 
