@@ -2,7 +2,7 @@ name: devsecops-ci-pipeline
 on:
   push:
     branches:
-      - abc
+      - main
 
 jobs:
   ci-job:
