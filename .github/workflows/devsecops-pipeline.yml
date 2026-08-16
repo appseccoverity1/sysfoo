@@ -83,8 +83,8 @@ jobs:
    - buid-sysfoo
    runs-on: ubuntu-latest
    
-   steps:
-      - name: Code Checkout or Code Clone
+  steps:
+      - name: Secret Scanning by GitLeaks
         uses: actions/checkout@v4
         
       - name: Start minikube
