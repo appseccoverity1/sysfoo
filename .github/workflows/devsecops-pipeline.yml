@@ -77,9 +77,10 @@ jobs:
       - name: Docker Push
         run: docker push ${{ secrets.DOCKER_USERNAME }}/sysfoo:v1
 
-  Deploy-K8s:
+
+  Deploy-K8S:
    needs:
-   - build-sysfoo
+   - buid-sysfoo
    runs-on: ubuntu-latest
    
    steps:
