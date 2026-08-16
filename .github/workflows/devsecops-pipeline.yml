@@ -2,7 +2,7 @@ name: devsecops-ci-pipeline
 on:
   push:
     branches:
-      - abc
+      - main
 
 jobs:
   ci-job:
@@ -76,3 +76,31 @@ jobs:
 
       - name: Docker Push
         run: docker push ${{ secrets.DOCKER_USERNAME }}/sysfoo:v1
+
+  Deploy-K8s:
+   needs:
+   - build-sysfoo
+   runs-on: ubuntu-latest
+   
+   steps:
+      - name: Code Checkout or Code Clone
+        uses: actions/checkout@v4
+        
+      - name: Start minikube
+        uses: medyagh/setup-minikube@latest
+
+      - name: Try the Cluster!
+        run: kubectl get pods -A
+
+      - name: Deploy to minikube
+       run: |
+         kubectl apply -f manifests/deployment.yaml
+         kubectl apply -f manifests/service.yaml
+         kubectl wait --for-condition=ready pod -l app=sysfoo
+
+      - name: test Service URLs
+       run: |
+         minikube service list
+         minikube service sysfoo-service --url
+         echo "=====================Opening the service============================"
+         curl $(minikube service sysfoo-service --url)
