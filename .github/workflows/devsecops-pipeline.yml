@@ -105,5 +105,5 @@ build-sysfoo:
         run: |
          minikube service list
          minikube service sysfoo-service --url
-         echo "=====================Opening the service========hi===================="
+         echo "=====================Opening the service============================"
          curl $(minikube service sysfoo-service --url)
