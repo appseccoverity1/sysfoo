@@ -2,7 +2,7 @@ name: devsecops-ci-pipeline
 on:
   push:
     branches:
-      - main
+      - abc
 
 jobs:
   ci-job:
@@ -34,7 +34,7 @@ jobs:
             -Dsonar.verbose=true
             -Dsonar.language=java
 
-      - name: SCA Scanning with Snyk
+      - name: SCA Scanning with Snyk tool
         uses: snyk/actions/maven@master
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
