@@ -102,7 +102,7 @@ jobs:
         run: |
           kubectl apply -f manifests/deployment.yaml
           kubectl apply -f manifests/service.yaml
-          kubectl wait --for=condition=ready pod -l app=sysfoo --timeout=120s
+          kubectl wait --for=condition=ready pod -l app=sysfoo
 
       - name: Test Service URL
         run: |
